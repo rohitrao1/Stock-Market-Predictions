@@ -76,9 +76,18 @@ fedRate = parseMonthlyRates("v_FederalFundRate.csv")
 ipi = parseMonthlyRates("v_IndustrialProductionIndex.csv")
 unEmpRate = parseMonthlyRates("v_UnemploymentRate.csv")
 
+oil = parseMonthlyRates("v_OilProduction.csv")
+commodity = parseMonthlyRates("v_Commodity.csv")
+trade = parseMonthlyRates("v_TradeBalance.csv")
+housing = parseMonthlyRates("v_HousingMarket.csv")
+building = parseMonthlyRates("v_BuildingPermit.csv")
+#Currency.csv
+
 sp500 = parseDailyIndex("o_SP500.csv")
 dowJones = parseDailyIndex("o_DowJonesIndustrialAverage.csv")
-ls = [gdp, bankRates, cpi, fedRate, ipi, unEmpRate, sp500, dowJones]
+#nasdaq = parseMonthlyRates("o_Nasdaq.csv")
+
+ls = [gdp, bankRates, cpi, fedRate, ipi, unEmpRate, oil, commodity, trade, housing, building, sp500, dowJones]
 lenLs = len(ls)
 
 
@@ -92,7 +101,12 @@ df = df.rename(columns={
     'Value3': 'FederalRate',
     'Value4': 'IPI',
     'Value5': 'UnEmpRate',
-    'Value6': 'SP500',
-    'Value7': 'DowJones'
+    'Value6': 'Oil',
+    'Value7': 'Commodity',
+    'Value8': 'TradeBal',
+    'Value9': 'Housing',
+    'Value10': 'BuildingPermit',
+    'Value11': 'SP500',
+    'Value12': 'DowJones'
     })
 df.to_csv('MarketData.csv', index=False)

@@ -92,6 +92,7 @@ lenLs = len(ls)
 
 
 df = mergeDatasets(lenLs, ls)
+df['year'], df['mon'] = df['Month'].str.split('-', 1).str
 print(df)
 
 df = df.rename(columns={
